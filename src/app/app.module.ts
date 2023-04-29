@@ -20,6 +20,7 @@ import { SideBarComponent } from './back-office/side-bar/side-bar.component';
 import { HomeBackComponent } from './back-office/home-back/home-back.component';
 import { NavBarComponent } from './back-office/nav-bar/nav-bar.component';
 import { FrontOfficeComponent } from './front-office/front-office/front-office.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { FrontOfficeComponent } from './front-office/front-office/front-office.c
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

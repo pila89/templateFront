@@ -17,7 +17,19 @@ const routes: Routes = [
   }, 
   {
     path: 'admin',
-    component: HomeBackComponent
+    component: HomeBackComponent,  children:[
+      {
+        path: '',
+        component: HomeComponent,
+
+
+      },
+    
+      { path: 'advertising',
+  loadChildren: () =>
+      import('./back-office/advertising/advertising.module').then((m) => m.AdvertisingModule),
+  },
+    ]
   },
   
 
