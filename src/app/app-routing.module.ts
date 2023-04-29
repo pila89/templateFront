@@ -6,14 +6,59 @@ import { BuyComponent } from './front-office/buy/buy.component';
 import { LoginComponent } from './front-office/login/login.component';
 import { SubmitComponent } from './front-office/submit/submit.component';
 import { ContactComponent } from './front-office/contact/contact.component';
+import { HomeBackComponent } from './back-office/home-back/home-back.component';
+import { FrontOfficeComponent } from './front-office/front-office/front-office.component';
 
 const routes: Routes = [
-   {path: '',component:HomeComponent},
-   {path: 'buy',component:BuyComponent},
-   {path: 'rent',component:RentComponent},
-   {path: 'login',component:LoginComponent},
-   {path: 'submit',component:SubmitComponent},
-   {path: 'contact',component:ContactComponent}
+  {
+    path: '',
+    redirectTo : 'user/home',
+    pathMatch : 'full'
+  }, 
+  {
+    path: 'admin',
+    component: HomeBackComponent
+  },
+  
+
+  
+
+  {
+    path: 'user',
+    component: FrontOfficeComponent,
+    children:[
+      {
+        path: '',
+        component: HomeComponent,
+      },
+      {
+        path: 'home',
+        component: HomeComponent
+      },
+      {
+        path: 'buy',
+        component: BuyComponent
+      },
+      {
+        path: 'rent',
+        component: RentComponent
+      },
+      {
+        path: 'login',
+        component: LoginComponent
+      }  , 
+      {
+        path: 'submit',
+        component: SubmitComponent
+      }     ,
+    ]
+  },
+
+  //  {path: 'buy',component:BuyComponent},
+  //  {path: 'rent',component:RentComponent},
+  //  {path: 'login',component:LoginComponent},
+  //  {path: 'submit',component:SubmitComponent},
+  //  {path: 'contact',component:ContactComponent}
 
 
 ];
