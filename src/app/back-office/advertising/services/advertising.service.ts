@@ -3,36 +3,34 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Advertising } from '../models/advertising.model';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class AdvertisingService {
   constructor(private httpClient: HttpClient) {}
 
   getAllAdvertisings(): Observable<Advertising[]> {
     return this.httpClient.get<Advertising[]>(
       'http://localhost:8075/ImmoNexus/Advertising/get-AllAdvertising'
-      
     );
   }
 
-  getAdvertisingBetweenTwoDate(start: any, end: any): Observable<Advertising[]> {
+  getAdvertisingBetweenTwoDate(
+    start: any,
+    end: any
+  ): Observable<Advertising[]> {
     return this.httpClient.post<Advertising[]>(
       `http://localhost:8075/ImmoNexus/Advertising/get-All-Actual-Advertising`,
       {
         start: start,
-        end: end
+        end: end,
       }
     );
   }
 
   deleteAdvertising(id: number): any {
     return this.httpClient.delete<Advertising[]>(
-      `http://localhost:8075/ImmoNexus/Advertising/delete-Advertising-ById/${id}`,
-     
+      `http://localhost:8075/ImmoNexus/Advertising/delete-Advertising-ById/${id}`
     );
   }
-
 
   // addAdvertising1(ad: any): any {
   //   return this.httpClient.post<Advertising[]>(
@@ -44,7 +42,7 @@ export class AdvertisingService {
   //   const formData: FormData = new FormData();
   //   formData.append('file', file);
   //   formData.append('advertising', JSON.stringify(advertising));
-   
+
   //   return this.httpClient.post<any>('http://localhost:8075/ImmoNexus/Advertising/add-Advertising', formData);
   // }
 
@@ -52,20 +50,24 @@ export class AdvertisingService {
     const formData: FormData = new FormData();
     formData.append('file', file);
     formData.append('advertising', JSON.stringify(advertising));
-  //  const constvalue={
-  //   advertising : advertising,
-  //   file:formData
-  // } 
+    //  const constvalue={
+    //   advertising : advertising,
+    //   file:formData
+    // }
 
- // console.log(constvalue)
-    return this.httpClient.post<any>('http://localhost:8075/ImmoNexus/Advertising/add-Advertisingg',
-    formData
+    // console.log(constvalue)
+    return this.httpClient.post<any>(
+      'http://localhost:8075/ImmoNexus/Advertising/add-Advertising',
+      formData
     );
   }
 
   updateAdvertising(ad: any): Observable<any> {
-     return this.httpClient.put('http://localhost:8075/ImmoNexus/Advertising/updateAdvertising', ad);
-   }
+    return this.httpClient.put(
+      'http://localhost:8075/ImmoNexus/Advertising/updateAdvertising',
+      ad
+    );
+  }
 
   // getUserById(id: number): Observable<User> {
   //   return this.httpClient.get<User>(

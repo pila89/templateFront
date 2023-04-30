@@ -1,12 +1,10 @@
-
-
 <div style="display: flex;flex-wrap: wrap;padding: 20px;padding-left: 35px">
   <h1>List of advertising</h1>
 </div>
 
 <div style="display: flex; justify-content: end;">
-  <button mat-raised-button (click)="addAdvertising()" >
-    <div style="display: flex; justify-content: center;"> 
+  <button mat-raised-button (click)="addAdvertising()">
+    <div style="display: flex; justify-content: center;">
       <div style="margin-top: 4px;height: 24px;">
         <mat-icon>add</mat-icon>
       </div>
@@ -20,10 +18,10 @@
 <div style="display: flex;justify-content: center;" [formGroup]="advertisingForm">
   <div style="display: flex;">
     <div style="margin-right: 10px;">
-       Date début  
+      Date début
     </div>
     <div>
-      <input type="date" name="dateofbirth" id="dateofbirth" formControlName="start" >
+      <input type="date" name="dateofbirth" id="dateofbirth" formControlName="start">
     </div>
   </div>
   <div style="display: flex;margin-left: 20px;">
@@ -31,12 +29,12 @@
       Date fin
     </div>
     <div>
-      <input type="date" name="dateofbirth" id="dateofbirth" formControlName="end" >
+      <input type="date" name="dateofbirth" id="dateofbirth" formControlName="end">
     </div>
   </div>
   <div style="display: flex;margin-left: 20px;">
-    <button  (click)="getAdvertisingBetweenTwoDate()">Valider</button>
-    <button  (click)="getAllAdvertising()">Reset</button>
+    <button (click)="getAdvertisingBetweenTwoDate()">Valider</button>
+    <button (click)="getAllAdvertising()">Reset</button>
   </div>
 </div>
 <!--  -->
@@ -59,13 +57,13 @@
         <div>coutParVueCible: {{advertising.coutParVueCible}}</div>
         <div>gainPublicitaire: {{advertising.gainPublicitaire}}</div>
         <div>nbrVuesFinal: {{advertising.nbrVuesFinal}}</div>
-        <a ><img [src]="'assets/PiDevFiles/'+ advertising.image"></a>
+        <a><img [src]="'assets/'+ advertising.image"></a>
 
       </mat-card-content>
       <mat-card-actions>
-        <div style="display: flex; justify-content: center"> 
+        <div style="display: flex; justify-content: center">
           <button mat-raised-button (click)="updateAdvertising(advertising)">
-            <div style="display: flex; justify-content: center;"> 
+            <div style="display: flex; justify-content: center;">
               <div style="margin-top: 4px;height: 24px;">
                 <mat-icon> edit </mat-icon>
               </div>
@@ -75,9 +73,9 @@
             </div>
           </button>
 
-          
+
           <button mat-raised-button>
-            <div style="display: flex; justify-content: center;"> 
+            <div style="display: flex; justify-content: center;">
               <div style="margin-top: 4px;height: 24px;">
                 <mat-icon>delete</mat-icon>
               </div>
@@ -87,7 +85,7 @@
             </div>
           </button>
         </div>
-       
+
       </mat-card-actions>
     </mat-card>
   </div>
